@@ -1,5 +1,6 @@
 import { use } from "react";
 import { useState } from "react"
+import React from "react";
 
 export const Register = ()=>{
     const[user,setUser] = useState({
@@ -19,24 +20,32 @@ export const Register = ()=>{
             ...user,
             [name]:value,
 
-        })
+        });
+    };
+
+    //handling the form submission
+    const handleSubmit = (e) =>
+    {
+        e.preventDefault();
+        alert(user);
     };
 
     return ( 
     <>
     <section>
         <main>
-            <div className="section-registration">
+            <div className="section-registration" >
                 <div className="container grid grid-two-cols">
                     <div className="registration-image">
                         <img src="/images/Omega.png" alt="register" width="350" height="350" />
                     </div>
+                    
                 
                  {/* registration form */}
                  <div className="registration-form">
                     <h1 className="main-heading mb-3">Registration Form</h1>
                     <br />
-                    <form action="">
+                    <form onSubmit = {handleSubmit} >
                         <div>
                             <label htmlFor="username">username</label>
                             <input 
@@ -49,6 +58,9 @@ export const Register = ()=>{
                             value={user.username} 
                             onChange={handleInput}
                             />
+                            </div>
+                            <div>   
+                            <label htmlFor="email">email</label>  
                             <input 
                             type="email" 
                             name="email" 
@@ -58,8 +70,10 @@ export const Register = ()=>{
                             autoComplete="off" 
                             value={user.email}
                             onChange={handleInput}
-
                             />
+                            </div>
+                            <div>  
+                            <label htmlFor="phone">phone</label>  
                             <input 
                             type="number" 
                             name="phone" 
@@ -69,8 +83,10 @@ export const Register = ()=>{
                             autoComplete="off"
                             value={user.phone}
                             onChange={handleInput}
- 
                             />
+                            </div>
+                            <div>    
+                            <label htmlFor="password">password</label>
                             <input 
                             type="password" 
                             name="password" 
@@ -85,7 +101,7 @@ export const Register = ()=>{
                         <br />
                         <button type="submit" className="btn btn-submit">
                             Register Now
-                            </button>
+                            </button>   
                     </form>
                  </div>
                 </div>
