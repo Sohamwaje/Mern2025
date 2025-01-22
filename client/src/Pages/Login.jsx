@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState } from "react";
+import './Login.css';
 
 export const Login = ()=>{
     const [user,setUser] = useState({
