@@ -1,0 +1,99 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #333;
+  padding: 1rem;
+  position: fixed; /* Fixed navbar at the top */
+  top: 0; /* Make sure it stays at the top of the screen */
+  left: 0;
+  width: 100%; /* Full width */
+  z-index: 10;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.navbar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section Styles */
+.hero-section {
+  background-color: #f4f4f4;
+  text-align: center;
+  padding: 50px 20px;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  flex-direction: column;  /* Stack content vertically */
+  height: calc(100vh - 60px); /* Full height minus the navbar height */
+  width: 100vw;            /* Full width of the viewport */
+  /* margin-top: 10px;        Ensure content doesn't overlap with the fixed navbar */
+  padding: 0 20px;         /*Add some padding for responsiveness */
+  display: flex;
+  justify-content: flex-start; /* This will align the content at the top */
+  align-items: center;         /* This will center the content vertically */
+  padding-top: 20px; 
+}
+
+.hero-section h1 {
+  
+  font-size: 3rem;
+  color: #333;
+  padding-top: 30px; 
+
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 50px; 
+
+}
+
+.hero-btn {
+  background-color: #007bff;
+  color: white;
+  font-size: 1.5rem;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #0056b3;
+}
+
+.hero-btn:focus {
+  outline: none;
+}
