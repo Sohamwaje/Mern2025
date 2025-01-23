@@ -1,6 +1,6 @@
-import { use } from "react";
+//import { use } from "react";
 import { useState } from "react"
-import React from "react";
+//import React from "react";
 
 export const Register = ()=>{
     const[user,setUser] = useState({

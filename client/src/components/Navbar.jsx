@@ -6,9 +6,9 @@ export const Navbar = () => {
         <>
         <header>
             <div className="container">
-                <div className="logo-brand"></div>
+                <div className="logo-brand">
                 <a href="/">Omega Technologies</a>
-            </div>
+                </div>
             <nav>
                 <ul>
                     <li><NavLink to="/">Home</NavLink></li>
@@ -19,6 +19,8 @@ export const Navbar = () => {
                     <li><NavLink to="/service">Services</NavLink></li>
                 </ul>
             </nav>
+            </div>
+
         </header>
         </>
     )};
