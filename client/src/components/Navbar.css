@@ -2,7 +2,7 @@
 {
     max-width: 300rem;
     /* padding: 4.2rem 2.4rem; */
-    /* display: flex; */
+    display: flex;
     justify-content: space-between;
 }
 ul
@@ -18,7 +18,12 @@ header{
     display: flex;
 }
 
+<<<<<<< HEAD
 .logo-brand
 {
 margin-top: 30px    ;
+=======
+.logo-brand{
+    margin-top: 15px;
+>>>>>>> 9cc765f4e75c35a875c957f451122192a4612928
 }
