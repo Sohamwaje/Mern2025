@@ -6,8 +6,10 @@ export const Navbar = () => {
         <>
         <header>
             <div className="container">
-                <div className="logo-brand"></div>
+                <div className="logo-brand">
                 <a href="/">Omega Technologies</a>
+                </div>
+
             </div>
             <nav>
                 <ul>
