@@ -18,12 +18,16 @@ header{
     display: flex;
 }
 
-<<<<<<< HEAD
+
+
+
 .logo-brand
 {
-margin-top: 30px    ;
-=======
+margin-top: 30px    
+}
+
+
+
 .logo-brand{
     margin-top: 15px;
->>>>>>> 9cc765f4e75c35a875c957f451122192a4612928
 }
