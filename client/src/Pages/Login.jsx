@@ -39,7 +39,7 @@ const URL = "http://localhost:5000/api/auth/login";
         {
             alert("Login Successful");
             setUser({email:"",password:""});
-            navigate("/")
+            navigate("/home")
         }else{
             alert("invalid credentials")
             console.log('invalid credentials')
@@ -98,6 +98,10 @@ const URL = "http://localhost:5000/api/auth/login";
                         <br />
                         <button type="submit" className="btn btn-submit">Login</button>   
                     </form>
+                    
+                    <p className="text-sm text-center mt-4 text-gray-600">
+              Don't have an account? <a href="/register" className="text-blue-600 hover:underline">Sign up</a>
+            </p>
                  </div>
                 </div>
             </div>

@@ -5,6 +5,12 @@ import "./Home.css";
 
 
 export const Home = ()=>{
+
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
     return (
     <>
  {/* <Navbar/> */}
@@ -13,8 +19,10 @@ export const Home = ()=>{
       <h1>Welcome to Omega Technologies</h1>
       <p>Choose the service you need to get started:</p>
       <div className="buttons">
-        <button className="hero-btn">New Installation</button>
-        <button className="hero-btn">Repair</button>
+        <button 
+        className="hero-btn"
+        onClick={() => handleNavigation("/repair")}>New Installation</button>
+        <button className="hero-btn" onClick={() => handleNavigation("/repair")}>Repair</button>
         <button className="hero-btn">Support</button>
       </div>
     </div>
