@@ -45,7 +45,8 @@ export const Register = ()=>{
 
         if(response.ok)
         {
-            setUser({username:"",
+            setUser({
+                username:"",
                 email:"",
                 phone:"",
                 password:""}); 

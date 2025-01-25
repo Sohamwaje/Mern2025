@@ -20,10 +20,6 @@ const App = ()=>{
   <Route path="/service" element = {<Service/>}/>
   <Route path="/register" element = {<Register/>}/>
   <Route path="/login" element = {<Login/>}/> 
-
-
-
-
 </Routes>
 </BrowserRouter>
 </>

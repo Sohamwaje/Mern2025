@@ -67,12 +67,11 @@ const register = async (req,res)=>{
             //const user = await userExist.comparePassword(password);
 
 
-            if(userExist)
-                {
-                    res.status(201).json({msg:"Login Successfully",
-                        //   token: await userExist.generateToken(),
-                        //   userId: userExist._id > toString(),
-                        });                
+            if (userExist.password === password) {
+                res.status(200).json({
+                    msg: "Login Successful",
+                    userId: userExist._id.toString(),
+                });                
                 }else{
                     res.status(401).json({message:"Invalid email or password"});
                 }

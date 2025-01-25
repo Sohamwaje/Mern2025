@@ -8,6 +8,9 @@ export const Navbar = () => {
             <div className="container">
                 <div className="logo-brand">
                 <a href="/">Omega Technologies</a>
+
+
+                
                 </div>
                 <nav>
                 <ul>

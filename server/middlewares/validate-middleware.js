@@ -1,4 +1,4 @@
-const { Schema } = require("zod");
+const {z} = require("zod");
 
 const validate = (schema)=>async(req  , res, next)=>{
     try {
@@ -13,10 +13,11 @@ const validate = (schema)=>async(req  , res, next)=>{
         const error = {
             status,
             message,
+            extraDetails,
         };
         console.log(error);
-        //res.status(400).json({msg:message});
-        next(error);
+        res.status(400).json({msg:message});
+        //next(error);
     }
 
 };

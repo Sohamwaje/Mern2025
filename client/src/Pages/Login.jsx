@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './Login.css';
+import React from "react";
 
-const URL = "http://localhost:5000/api/auth/register";
+const URL = "http://localhost:5000/api/auth/login";
  export const Login = ()=>{
     const [user,setUser] = useState({
         email:"",
-        password:""
+        password:"",
     });
 
     const navigate = useNavigate();
 
     const handleInput = (e)=>{
-        let name = e.target.name;
-        let value = e.target.value;
+        let {name,value} = e.target;
+        //let value = e.target.value;
 
         setUser({
             ...user,
