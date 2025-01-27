@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Repair.css';
 
-const MachineRepairForm = () => {
+export const Repair = () => {
   // State to store the form data
   const [formData, setFormData] = useState({
     machineId: '',
@@ -22,21 +22,43 @@ const MachineRepairForm = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form data submitted:', formData);
+
+    try {
+      const response = await fetch(URL,{
+        method:"POST",
+        headers:{
+          "Content-type":"application/json",
+        },
+        body:JSON.stringify(formData),
+      });
+
+      console.log("repair info",formData);
+      
+      if(response.ok)
+      {
+        alert("Registration successful");
+        setFormData({
+          machineId: '',
+          machineName: '',
+          issueDescription: '',
+          receiverName: '',
+          receiverContact: '',
+          repairDate: '',});
+        };
+      
+
+    } catch (error) {
+      
+    }
     // Here, you would typically send the data to a backend API
     // For example: axios.post('/api/repair', formData);
     alert('Repair information submitted!');
     // Reset form after submission
-    setFormData({
-      machineId: '',
-      machineName: '',
-      issueDescription: '',
-      receiverName: '',
-      receiverContact: '',
-      repairDate: '',
-    });
+    
+  
   };
 
   return (
@@ -119,5 +141,3 @@ const MachineRepairForm = () => {
     </div>
   );
 };
-
-export default MachineRepairForm;
