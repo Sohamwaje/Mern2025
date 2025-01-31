@@ -5,6 +5,7 @@ const authcontroller = require("../controller/auth-controller");
 const {signupSchema,loginSchema} = require("../validator/auth-validator");
 const validate = require("../middlewares/validate-middleware");
 const repairForm = require("../controller/repair-controller");
+const Repair = require("../models/repair-model");
 
 router.route('/repair').post(repairForm);
 router.route('/register')

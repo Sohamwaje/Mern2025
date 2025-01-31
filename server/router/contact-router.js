@@ -12,6 +12,4 @@ router.route('/login')
 .post(validate(loginSchema),authcontroller.login);
 
 
-
-
 module.exports = router;

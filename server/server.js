@@ -19,7 +19,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/api/auth",authRoute);
 app.use("/api/form",contactRoute);
-app.use("api/menu",repairRoute)
+app.use("/api/menu",repairRoute);
 app.use(errorMiddleware);
 
 const PORT = 5000;  

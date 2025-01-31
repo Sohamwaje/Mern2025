@@ -1,7 +1,6 @@
-import Repair from "../models//repair-model";
-import contactForm from "./contact-controller";
+const Repair = require("../models/repair-model");
 
-export const repairForm = async(req ,res)=>{
+const repairForm = async(req ,res)=>{
     try {
         const response = req.body;
         await Repair.create(response);
@@ -10,5 +9,5 @@ export const repairForm = async(req ,res)=>{
         return res.status(500).json({message:"Device adding failed"})
     }
 };
-
-module.exports= repairForm;
+ 
+module.exports = repairForm;

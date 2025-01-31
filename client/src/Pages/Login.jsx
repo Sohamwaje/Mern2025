@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import './Login.css';
 import React from "react";
 
-const URL = "http://localhost:5000/api/auth";
+const URL = "http://localhost:5000/api/auth/login";
  export const Login = ()=>{
     const [user,setUser] = useState({
         email:"",

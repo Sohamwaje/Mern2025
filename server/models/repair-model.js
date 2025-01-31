@@ -16,12 +16,12 @@ const repairSchema = new Schema({
         required:true
      },
 
-     reciever_name:{
+     receiver_name:{
         type:String,
         required:true
      },
 
-     reciever_contact:{
+     receiver_contact:{
         type:String,
         required:true        
      }

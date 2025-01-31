@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Repair.css';
 
+const URL = "http://localhost:5000/api/menu/repair";
 export const Repair = () => {
   // State to store the form data
   const [formData, setFormData] = useState({
@@ -39,7 +40,8 @@ export const Repair = () => {
       
       if(response.ok)
       {
-        alert("Registration successful");
+        alert("Repair information submitted!");
+   //     alert("Registration successful");
         setFormData({
           machineId: '',
           machineName: '',
@@ -47,15 +49,19 @@ export const Repair = () => {
           receiverName: '',
           receiverContact: '',
           repairDate: '',});
-        };
+        
+      }else{
+        alert("wrong details");
+      }
+
       
 
     } catch (error) {
+      console.log(error);
       
     }
     // Here, you would typically send the data to a backend API
     // For example: axios.post('/api/repair', formData);
-    alert('Repair information submitted!');
     // Reset form after submission
     
   
