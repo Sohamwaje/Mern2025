@@ -10,6 +10,8 @@ import { Navbar } from "./components/Navbar";
 import {Repair} from "./Pages/Repair";
 import {Options} from "./Pages/Options";
 import { Biometric } from "./Pages/Biometric";
+import { RepairTable } from "./Pages/RepairTable";
+
 
 const App = ()=>{
   return (
@@ -26,6 +28,7 @@ const App = ()=>{
   <Route path="/repair" element = {<Repair/>}/> 
   <Route path="/options" element = {<Options/>}/>
   <Route path="/biometric" element = {<Biometric/>}/>
+  <Route path="/repairs" element = {<RepairTable/>}/> 
 
 
 

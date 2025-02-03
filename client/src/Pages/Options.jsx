@@ -1,6 +1,6 @@
-import React from "react";
+//import React from "react";
 import "./Options.css";
-import { Navigate, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 
 
@@ -15,7 +15,7 @@ export const Options = () => {
   const handleCctvClick = () => {
     //alert("CCTVs Clicked!");
 
-    navigate("/cctv");
+    navigate("/cctvs");
 
   };
 
