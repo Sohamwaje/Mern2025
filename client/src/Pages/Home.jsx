@@ -3,9 +3,6 @@ import React from "react";
 import "./Home.css";
 import { useNavigate } from 'react-router-dom';
 
-
-
-
 export const Home = ()=>{
 
   const navigate = useNavigate();
@@ -23,7 +20,7 @@ export const Home = ()=>{
       <div className="buttons">
         <button 
         className="hero-btn"
-        onClick={() => handleNavigation("/repair")}>New Installation</button>
+        onClick={() => handleNavigation("/options")}>New Installation</button>
         <button className="hero-btn" onClick={() => handleNavigation("/repair")}>Repair</button>
         <button className="hero-btn">Support</button>
       </div>

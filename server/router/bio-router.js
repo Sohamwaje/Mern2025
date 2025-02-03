@@ -6,9 +6,9 @@ const {signupSchema,loginSchema} = require("../validator/auth-validator");
 const validate = require("../middlewares/validate-middleware");
 const repairForm = require("../controller/repair-controller");
 const Repair = require("../models/repair-model");
-const biometricForm = require("../controller/repair-controller")
+const biometricForm = require("../controller/biometric-controller")
 
-router.route('/repair').post(repairForm);
+//router.route('/repair').post(repairForm);
 router.route('/biometric').post(biometricForm);
 
 router.route('/register')

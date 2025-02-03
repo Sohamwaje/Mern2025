@@ -7,7 +7,9 @@ import {Service} from "./Pages/Service";
 import {Register} from "./Pages/Register";
 import { Login } from "./Pages/Login";
 import { Navbar } from "./components/Navbar";
-import {Repair} from "./Pages/Repair"
+import {Repair} from "./Pages/Repair";
+import {Options} from "./Pages/Options";
+import { Biometric } from "./Pages/Biometric";
 
 const App = ()=>{
   return (
@@ -22,6 +24,10 @@ const App = ()=>{
   <Route path="/register" element = {<Register/>}/>
   <Route path="/login" element = {<Login/>}/> 
   <Route path="/repair" element = {<Repair/>}/> 
+  <Route path="/options" element = {<Options/>}/>
+  <Route path="/biometric" element = {<Biometric/>}/>
+
+
 
 </Routes>
 </BrowserRouter>

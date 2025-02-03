@@ -1,32 +1,38 @@
 const{Schema,model,default:mongoose} = require("mongoose");
 
 const repairSchema = new Schema({
-     machine_id :{
+   machineId :{
         type:String,
         required:true
      },
      
-     machine_name:{
+     machineName:{
         type:String,
         required:true
      },
 
-     issue_description:{
+     issueDescription:{
         type:String,
         required:true
      },
 
-     receiver_name:{
+     receiverName:{
         type:String,
         required:true
      },
 
-     receiver_contact:{
+     receiverContact:{
         type:String,
         required:true        
+     },
+
+     repairDate:{
+      type:Date
      }
 });
 
 //Create model or collection
-const Repair = new model('Repair',repairSchema);
+const Repair = model('Repair',repairSchema);
 module.exports = Repair;
+
+

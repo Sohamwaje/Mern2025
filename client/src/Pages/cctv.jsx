@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import './Repair.css';
 
-const URL = "http://localhost:5000/api/menu/repair";
-export const Repair = () => {
+const URL = "http://localhost:5000/api/cc/cctv";
+export const Biometric = () => {
   // State to store the form data
   const [formData, setFormData] = useState({
-    machineId: '',
-    machineName: '',
-    issueDescription: '',
-    receiverName: '',
-    receiverContact: '',
-    repairDate: '',
+    DeviceSN: '',
+    DeviceName: '',
+    SiteName: '',
+    receiverName:'',
+    receiverContact:'',
+    dispatchDate: '',
   });
 
   // Handle input changes
@@ -40,18 +40,20 @@ export const Repair = () => {
       
       if(response.ok)
       {
-        alert("Repair information submitted!");
+        alert("New installation information submitted!");
    //     alert("Registration successful");
         setFormData({
-          machineId: '',
-          machineName: '',
-          issueDescription: '',
-          receiverName: '',
-          receiverContact: '',
-          repairDate: '',});
+            DeviceSN: '',
+            DeviceName: '',
+            SiteName: '',
+            receiverName:'',
+            receiverContact:'',
+            dispatchDate: '',
+          });
         
       }else{
-        alert("wrong details");
+        
+       alert("wrong details");
       }
 
       
@@ -69,38 +71,38 @@ export const Repair = () => {
 
   return (
     <div className="repair-form">
-      <h2>Machine Repair Information</h2>
+      <h2>New Device Installation Information</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="machineId">Machine ID:</label>
+          <label htmlFor="DeviceSN">Serial Number:</label>
           <input
             type="text"
-            id="machineId"
-            name="machineId"
-            value={formData.machineId}
+            id="DeviceSN"
+            name="DeviceSN"
+            value={formData.DeviceSN}
             onChange={handleChange}
             required
           />
         </div>
 
         <div>
-          <label htmlFor="machineName">Machine Name:</label>
+          <label htmlFor="DeviceName">Device Model Name:</label>
           <input
             type="text"
-            id="machineName"
-            name="machineName"
-            value={formData.machineName}
+            id="DeviceName"
+            name="DeviceName"
+            value={formData.DeviceName}
             onChange={handleChange}
             required
           />
         </div>
 
         <div>
-          <label htmlFor="issueDescription">Issue Description:</label>
+          <label htmlFor="SiteName">Site Address:</label>
           <textarea
-            id="issueDescription"
-            name="issueDescription"
-            value={formData.issueDescription}
+            id="SiteName"
+            name="SiteName"
+            value={formData.SiteName}
             onChange={handleChange}
             required
           ></textarea>
@@ -131,18 +133,18 @@ export const Repair = () => {
         </div>
 
         <div>
-          <label htmlFor="repairDate">Repair Date:</label>
+          <label htmlFor="dispatchDate">Dispatch Date:</label>
           <input
             type="date"
-            id="repairDate"
-            name="repairDate"
-            value={formData.repairDate}
+            id="dispatchDate"
+            name="dispatchDate"
+            value={formData.dispatchDate}
             onChange={handleChange}
             required
           />
         </div>
 
-        <button type="submit">Submit Repair Info</button>
+        <button type="submit">Submit Device Info</button>
       </form>
     </div>
   );

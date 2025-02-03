@@ -1,0 +1,17 @@
+const Cctv = require("../models/cctv-models");
+
+
+const cctvForm = async(req ,res)=>{
+    try {
+        const response = req.body;
+        console.log(response);
+        await Cctv.create(response);
+        console.log("response created");
+        return res.status(200).json({message:"CCTV info saved"});
+    }catch(error)
+    {
+        return res.status(500).json({message:"CCTV info not saved"});
+    }
+}
+
+module.exports = cctvForm;
