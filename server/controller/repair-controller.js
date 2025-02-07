@@ -13,7 +13,18 @@ const repairForm = async(req ,res)=>{
     }
 };
 
+const getrepform = async(req ,res)=>{
+    try {
+        const data = await Repair.find();
+        res.json(data);
+        console.log("response",data);
+        
+    } catch (error) {
+        res.status(500).json({message:error.message});
+    }
+}
 
 
 
-module.exports = repairForm;
+
+module.exports = repairForm,getrepform;

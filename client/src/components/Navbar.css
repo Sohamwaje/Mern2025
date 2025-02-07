@@ -1,16 +1,18 @@
-.container
+.nav-container
 {
     max-width: 300rem;
     /* padding: 4.2rem 2.4rem; */
     display: flex;
     justify-content: space-between;
+    width: 100vw;
+    height: 50px;
 }
 ul
 {
     display: flex;
-    gap:3.2rem;
+    gap:5.2rem;
     justify-content: flex-end;
-    margin: 30px 30px ;
+    margin: 10px 30px ;
     
 }
 
@@ -23,7 +25,7 @@ header{
 
 .logo-brand
 {
-margin-top: 30px    
+margin-top: 10px    
 }
 
 

@@ -5,7 +5,7 @@ export const Navbar = () => {
     return(
         <>
         <header>
-            <div className="container">
+            <div className="nav-container">
                 <div className="logo-brand">
                 <a href="/">Omega Technologies</a>
 
@@ -14,12 +14,12 @@ export const Navbar = () => {
                 </div>
                 <nav>
                 <ul>
-                    <li><NavLink to="/home">Home</NavLink></li>
                     <li><NavLink to="/about">About</NavLink></li>
                     <li><NavLink to="/contact">Contact</NavLink></li>
-                    <li><NavLink to="/register">Register</NavLink></li>
-                    <li><NavLink to="/login">Login</NavLink></li>
+                    {/* <li><NavLink to="/register">Register</NavLink></li>
+                    <li><NavLink to="/">Login</NavLink></li> */}
                     <li><NavLink to="/service">Services</NavLink></li>
+                    <li><NavLink to="/">Logout</NavLink></li>
                 </ul>
                 </nav>
                 </div>

@@ -50,7 +50,8 @@ export const Register = ()=>{
                 email:"",
                 phone:"",
                 password:""}); 
-                navigate("/login"); 
+                alert("User registered successfully")
+                navigate("/"); 
         }
          console.log(response);
         } catch (error) {

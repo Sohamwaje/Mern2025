@@ -15,7 +15,7 @@ export const Options = () => {
   const handleCctvClick = () => {
     //alert("CCTVs Clicked!");
 
-    navigate("/cctvs");
+    navigate("/cctv");
 
   };
 

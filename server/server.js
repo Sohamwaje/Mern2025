@@ -8,6 +8,9 @@ const repairRoute = require("./router/repair-router");
 const connectDb = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
 const bioRoute = require("./router/bio-router");
+const cctvRoute = require("./router/cctv-router");
+const getRoute = require("./router/repair-router");
+const deleteRoute = require("./router/repair-router");
 
 const corsOptions = {
     origin:"http://localhost:5173",
@@ -15,13 +18,15 @@ const corsOptions = {
     credentials:true,
 };
 
-
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/api/auth",authRoute);
 app.use("/api/form",contactRoute);
 app.use("/api/menu",repairRoute);
 app.use("/api/bio",bioRoute);
+app.use("/api/cam",cctvRoute);
+app.use("/api/fet",getRoute);
+app.use("/api/del",deleteRoute);
 app.use(errorMiddleware);
 
 const PORT = 5000;  

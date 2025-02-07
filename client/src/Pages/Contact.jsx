@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "./Contact.css";
+
 
 export const Contact = () => {
   const [contact, setContact] = useState({
@@ -27,10 +29,10 @@ export const Contact = () => {
       <section className="section-contact">
         <div className="contact-content container">
           <h1 className="main-heading">Contact Us</h1>
-        </div>
+          </div>
 
         {/* Contact page main */}
-        <div className="container grid grid-two-cols">
+        <div className="contact-container ">
           {/* <div className="contact-img">
             <img
               src="/images/Omega.png"

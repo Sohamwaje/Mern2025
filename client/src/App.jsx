@@ -10,7 +10,8 @@ import { Navbar } from "./components/Navbar";
 import {Repair} from "./Pages/Repair";
 import {Options} from "./Pages/Options";
 import { Biometric } from "./Pages/Biometric";
-
+import { Cctvfront } from "./Pages/Cctv";
+import {RepView} from "./Pages/Repairview";
 
 const App = ()=>{
   return (
@@ -23,10 +24,14 @@ const App = ()=>{
   <Route path="/contact" element = {<Contact/>}/>
   <Route path="/service" element = {<Service/>}/>
   <Route path="/register" element = {<Register/>}/>
-  <Route path="/login" element = {<Login/>}/> 
+  <Route path="/" element = {<Login/>}/> 
   <Route path="/repair" element = {<Repair/>}/> 
   <Route path="/options" element = {<Options/>}/>
   <Route path="/biometric" element = {<Biometric/>}/>
+  <Route path="/cctv" element = {<Cctvfront/>}/>
+  <Route path="/allrep" element = {<RepView/>}/>
+
+
 
 
 
