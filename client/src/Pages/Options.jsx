@@ -25,15 +25,15 @@ export const Options = () => {
       <div className="space-y-4">
         <button
           className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700"
-          onClick={handleBiometricsClick}
+          onClick={handleInClick}
           >
-          Biometrics and Access Control
+          Inward
         </button>
         <button
           className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700"
-          onClick={handleCctvClick}
+          onClick={handleOutClick}
         >
-          CCTVs
+         Outward
         </button>
       </div>
     </div>
