@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import './Repair.css';
+import { Navigate, useNavigate } from 'react-router-dom';
 
-const URL = "http://localhost:5000/api/cam/cctv";
-export const Cctvfront = () => {
+const URL = "http://localhost:5000/api/in/inward";
+const URL2 = "http://localhost:5000/api/st/stock";
+
+export const Inward = () => {
+
   // State to store the form data
   const [formData, setFormData] = useState({
     DeviceSN: '',
@@ -12,7 +16,7 @@ export const Cctvfront = () => {
     receiverContact:'',
     dispatchDate: '',
   });
-
+  
   // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,6 +24,11 @@ export const Cctvfront = () => {
       ...formData,
       [name]: value,
     });
+  };
+  
+  const navigate = useNavigate();
+  const HandleViewIn = () =>{
+    navigate("/inlist");
   };
 
   // Handle form submission
@@ -34,45 +43,41 @@ export const Cctvfront = () => {
           "Content-Type":"application/json",
         },
         body:JSON.stringify(formData),
-      });
-
-      console.log("repair info",formData);
-      
-      if(response.ok)
+      }
+    );
+    
+    console.log("repair info",formData);
+    
+    if(response.ok)
       {
         alert("New installation information submitted!");
-   //     alert("Registration successful");
+        //     alert("Registration successful");
         setFormData({
-            DeviceSN: '',
-            DeviceName: '',
-            SiteName: '',
-            receiverName:'',
-            receiverContact:'',
-            dispatchDate: '',
-          });
+          DeviceSN: '',
+          DeviceName: '',
+          SiteName: '',
+          receiverName:'',
+          receiverContact:'',
+          dispatchDate: '',
+        });
         
       }else{
         alert(`Error: ${response.status}`);
-
-       // alert("wrong details");
       }
-
-      
+      console.log("Inserted in inward:",formData);
 
     } catch (error) {
       console.log(error);
       
     }
     // Here, you would typically send the data to a backend API
-    // For example: axios.post('/api/repair', formData);
-    // Reset form after submission
-    
+
   
   };
 
   return (
     <div className="repair-form">
-      <h2>New Device Installation Information</h2>
+      <h2>Inward Device Information</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="DeviceSN">Serial Number:</label>
@@ -99,7 +104,7 @@ export const Cctvfront = () => {
         </div>
 
         <div>
-          <label htmlFor="SiteName">Site Address:</label>
+          <label htmlFor="SiteName">Sender Address:</label>
           <textarea
             id="SiteName"
             name="SiteName"
@@ -110,12 +115,12 @@ export const Cctvfront = () => {
         </div>
 
         <div>
-          <label htmlFor="receiverName">Receiver Name:</label>
+          <label htmlFor="broughtBy">Brought By:</label>
           <input
             type="text"
-            id="receiverName"
-            name="receiverName"
-            value={formData.receiverName}
+            id="broughtBy"
+            name="broughtBy"
+            value={formData.broughtBy}
             onChange={handleChange}
             required
           />
@@ -134,19 +139,22 @@ export const Cctvfront = () => {
         </div>
 
         <div>
-          <label htmlFor="dispatchDate">Dispatch Date:</label>
+          <label htmlFor="inwardDate">Inward Date:</label>
           <input
             type="date"
-            id="dispatchDate"
-            name="dispatchDate"
-            value={formData.dispatchDate}
+            id="inwardDate"
+            name="inwardDate"
+            value={formData.inwardDate}
             onChange={handleChange}
             required
           />
         </div>
 
         <button type="submit">Submit Device Info</button>
+
+
       </form>
-    </div>
+      <button onClick={HandleViewIn} type="button">View inward list</button>
+      </div>
   );
 };

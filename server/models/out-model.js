@@ -1,6 +1,6 @@
 const{Schema,model,default:mongoose} = require("mongoose");
 
-const cctvSchema = new Schema({
+const outSchema = new Schema({
     DeviceSN:{
         type:String,
         required:true
@@ -13,7 +13,7 @@ const cctvSchema = new Schema({
         type:String,
         required:true
     },
-    receiverName: {
+    broughtBy: {
         type:String,
         required:true
     },
@@ -21,13 +21,13 @@ const cctvSchema = new Schema({
         type:String,
         required:true
     },
-    dispatchDate:{
+    inwardDate:{
         type:Date
     }
 });
 
 //Create model or collection
-const Cctv = model('Cctv',cctvSchema);
-module.exports = Cctv;
+const Outward = model('Outward',outSchema);
+module.exports = Outward;
 
 

@@ -1,21 +1,22 @@
 //import React from "react";
 import "./Options.css";
 import {  useNavigate } from 'react-router-dom';
+import React from "react";
 
 
 
 export const Options = () => {
   const navigate = useNavigate();
-  const handleBiometricsClick = () => {
+  const handleInClick = () => {
     //alert("Biometrics and Access Control Clicked!");
-    navigate("/biometric"); // ✅ Correctly navigate after clicking
+    navigate("/inward"); // ✅ Correctly navigate after clicking
     
   };
   
-  const handleCctvClick = () => {
+  const handleOutClick = () => {
     //alert("CCTVs Clicked!");
 
-    navigate("/cctv");
+    navigate("/outward");
 
   };
 

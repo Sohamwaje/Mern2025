@@ -2,6 +2,7 @@
 import React from "react";
 import "./Home.css";
 import { useNavigate } from 'react-router-dom';
+import { Options } from "./Options";
 
 export const Home = ()=>{
 
@@ -21,10 +22,13 @@ export const Home = ()=>{
         <button 
         className="hero-btn"
         onClick={() => handleNavigation("/options")}>New Installation</button>
-        <button className="hero-btn" onClick={() => handleNavigation("/repair")}>Repair</button>
-        <button className="hero-btn">Support</button>
+        <button 
+        className="hero-btn" 
+        onClick={() => handleNavigation("/repair")}>Repair</button>
+        <button 
+        className="hero-btn">Support</button>
       </div>
     </div>
     </>
-    )
+  )
 };

@@ -27,7 +27,7 @@ export const Repair = () => {
   };
 
 
-  const handleCctvClick = () => {
+  const handleViewClick = () => {
     navigate("/allrep"); // Navigate to /allrep
   };
 
@@ -155,7 +155,7 @@ export const Repair = () => {
 
         <button type="submit">Submit Repair Info</button>
       </form>
-    <button onClick={handleCctvClick} type="submit">View repair list</button>
+    <button onClick={handleViewClick} type="submit">View repair list</button>
     </div>
 
     </div>

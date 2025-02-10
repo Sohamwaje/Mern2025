@@ -10,7 +10,6 @@ const biometricForm = require("../controller/repair-controller")
 const getrepform = require("../controller/repair-controller"); 
 
 router.route('/repair').post(repairForm);
-router.route('/biometric').post(biometricForm);
 router.get("/allrep",async(req ,res)=>{
     try {
         const data = await Repair.find();

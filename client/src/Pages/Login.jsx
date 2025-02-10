@@ -41,7 +41,7 @@ const URL = "http://localhost:5000/api/auth/login";
             setUser({email:"",password:""});
             navigate("/home")
         }else{
-            alert("invalid credentials")
+            alert("User not registered! Please Sign Up.")
             console.log('invalid credentials')
         }
         

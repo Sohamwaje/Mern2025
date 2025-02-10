@@ -1,6 +1,6 @@
 const{Schema,model,default:mongoose} = require("mongoose");
 
-const bioSchema = new Schema({
+const stockSchema = new Schema({
     DeviceSN:{
         type:String,
         required:true
@@ -13,7 +13,7 @@ const bioSchema = new Schema({
         type:String,
         required:true
     },
-    receiverName: {
+    broughtBy: {
         type:String,
         required:true
     },
@@ -21,10 +21,10 @@ const bioSchema = new Schema({
         type:String,
         required:true
     },
-    dispatchDate:{
+    inwardDate:{
         type:Date
     }
 });
 
-const Biometric = model('Biometric',bioSchema);
-module.exports = Biometric;
+const Stock = model('Stock',stockSchema);
+module.exports = Stock;

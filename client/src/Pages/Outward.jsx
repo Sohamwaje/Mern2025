@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
+
 import './Repair.css';
 
-const URL = "http://localhost:5000/api/bio/biometric";
-export const Biometric = () => {
+const URL = "http://localhost:5000/api/ol/outward";
+export const Outward = () => {
   // State to store the form data
   const [formData, setFormData] = useState({
     DeviceSN: '',
     DeviceName: '',
     SiteName: '',
-    receiverName:'',
+    broughtBy:'',
     receiverContact:'',
-    dispatchDate: '',
+    inwardDate: '',
   });
 
   // Handle input changes
@@ -20,6 +22,11 @@ export const Biometric = () => {
       ...formData,
       [name]: value,
     });
+  };
+
+  const navigate = useNavigate();
+  const HandleViewOut = () =>{
+    navigate("/outlist");
   };
 
   // Handle form submission
@@ -46,9 +53,9 @@ export const Biometric = () => {
             DeviceSN: '',
             DeviceName: '',
             SiteName: '',
-            receiverName:'',
+            broughtBy:'',
             receiverContact:'',
-            dispatchDate: '',
+            inwardDate: '',
           });
         
       }else{
@@ -72,7 +79,7 @@ export const Biometric = () => {
 
   return (
     <div className="repair-form">
-      <h2>New Device Installation Information</h2>
+      <h2>Outward Device Information</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="DeviceSN">Serial Number:</label>
@@ -99,7 +106,7 @@ export const Biometric = () => {
         </div>
 
         <div>
-          <label htmlFor="SiteName">Site Address:</label>
+          <label htmlFor="SiteName">Receiver Address:</label>
           <textarea
             id="SiteName"
             name="SiteName"
@@ -110,12 +117,12 @@ export const Biometric = () => {
         </div>
 
         <div>
-          <label htmlFor="receiverName">Receiver Name:</label>
+          <label htmlFor="broughtBy">Receiver Name:</label>
           <input
             type="text"
-            id="receiverName"
-            name="receiverName"
-            value={formData.receiverName}
+            id="broughtBy"
+            name="broughtBy"
+            value={formData.broughtBy}
             onChange={handleChange}
             required
           />
@@ -134,12 +141,12 @@ export const Biometric = () => {
         </div>
 
         <div>
-          <label htmlFor="dispatchDate">Dispatch Date:</label>
+          <label htmlFor="inwardDate">Dispatch Date:</label>
           <input
             type="date"
-            id="dispatchDate"
-            name="dispatchDate"
-            value={formData.dispatchDate}
+            id="inwardDate"
+            name="inwardDate"
+            value={formData.inwardDate}
             onChange={handleChange}
             required
           />
@@ -147,6 +154,8 @@ export const Biometric = () => {
 
         <button type="submit">Submit Device Info</button>
       </form>
+      <button onClick={HandleViewOut} type="submit">View outward list</button>
+
     </div>
   );
 };

@@ -8,10 +8,13 @@ import {Register} from "./Pages/Register";
 import { Login } from "./Pages/Login";
 import { Navbar } from "./components/Navbar";
 import {Repair} from "./Pages/Repair";
-import {Options} from "./Pages/Options";
-import { Biometric } from "./Pages/Biometric";
-import { Cctvfront } from "./Pages/Cctv";
+import {Inward} from "./Pages/Inward";
+import {Outward} from "./Pages/Outward";
 import {RepView} from "./Pages/Repairview";
+import { Options } from "./Pages/Options";
+import { Inlist } from "./Pages/Inlist";
+import { Outlist } from "./Pages/Outlist";
+
 
 const App = ()=>{
   return (
@@ -27,10 +30,11 @@ const App = ()=>{
   <Route path="/" element = {<Login/>}/> 
   <Route path="/repair" element = {<Repair/>}/> 
   <Route path="/options" element = {<Options/>}/>
-  <Route path="/biometric" element = {<Biometric/>}/>
-  <Route path="/cctv" element = {<Cctvfront/>}/>
+  <Route path="/inward" element = {<Inward/>}/>
+  <Route path="/outward" element = {<Outward/>}/>
   <Route path="/allrep" element = {<RepView/>}/>
-
+  <Route path="/inlist" element = {<Inlist/>}/>
+<Route path="/outlist" element = {<Outlist/>}/>
 
 
 
@@ -38,7 +42,7 @@ const App = ()=>{
 </Routes>
 </BrowserRouter>
 </>
-  );
+ );
 };
 
 export default App;

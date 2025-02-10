@@ -1,11 +1,12 @@
-const Biometric = require("../models/biometric-model");
+const Inward = require("../models/inward-model");
 
 
-const biometricForm = async(req ,res)=>{
+
+const inwardForm = async(req ,res)=>{
     try {
         const response = req.body;
         console.log(response);
-        await Biometric.create(response);
+        await Inward.create(response);
         console.log("response created");
         return res.status(200).json({message:"Biometric info saved"});
     }catch(error)
@@ -14,4 +15,4 @@ const biometricForm = async(req ,res)=>{
     }
 }
 
-module.exports = biometricForm;
+module.exports = inwardForm;

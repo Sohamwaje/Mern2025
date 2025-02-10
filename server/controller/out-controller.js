@@ -1,10 +1,10 @@
-const Cctv = require("../models/cctv-model");
+const Outward = require("../models/out-model");
 
-const cctvForm = async(req ,res)=>{
+const outForm = async(req ,res)=>{
     try {
         const response = req.body;
         console.log(response);
-        await Cctv.create(response);
+        await Outward.create(response);
         console.log("response created");
         return res.status(200).json({message:"CCTV added successfully"})
         
@@ -13,4 +13,4 @@ const cctvForm = async(req ,res)=>{
     }
 };
 
-module.exports = cctvForm;
+module.exports = outForm;
