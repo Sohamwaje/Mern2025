@@ -14,7 +14,7 @@ import {RepView} from "./Pages/Repairview";
 import { Options } from "./Pages/Options";
 import { Inlist } from "./Pages/Inlist";
 import { Outlist } from "./Pages/Outlist";
-
+import { StockView } from "./Pages/StockView";
 
 const App = ()=>{
   return (
@@ -34,7 +34,8 @@ const App = ()=>{
   <Route path="/outward" element = {<Outward/>}/>
   <Route path="/allrep" element = {<RepView/>}/>
   <Route path="/inlist" element = {<Inlist/>}/>
-<Route path="/outlist" element = {<Outlist/>}/>
+  <Route path="/outlist" element = {<Outlist/>}/>
+  <Route path="/stockview" element = {<StockView/>}/>
 
 
 

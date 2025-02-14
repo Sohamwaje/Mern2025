@@ -20,6 +20,15 @@ export const Options = () => {
 
   };
 
+  const handleStockClick = () => {
+    //alert("CCTVs Clicked!");
+
+    navigate("/stockview");
+
+  };
+
+  
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <h1 className="text-2xl font-bold mb-4">Choose a service</h1>
@@ -36,6 +45,13 @@ export const Options = () => {
         >
          Outward
         </button>
+        <button
+          className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700"
+          onClick={handleStockClick}
+        >
+         Inventory
+        </button>
+        
       </div>
     </div>
   );

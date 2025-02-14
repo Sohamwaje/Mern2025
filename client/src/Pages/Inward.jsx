@@ -12,9 +12,9 @@ export const Inward = () => {
     DeviceSN: '',
     DeviceName: '',
     SiteName: '',
-    receiverName:'',
+    broughtBy:'',
     receiverContact:'',
-    dispatchDate: '',
+    inwardDate: '',
   });
   
   // Handle input changes
@@ -43,8 +43,16 @@ export const Inward = () => {
           "Content-Type":"application/json",
         },
         body:JSON.stringify(formData),
-      }
-    );
+      });
+
+      //second
+      const response2 = await fetch(URL2,{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body:JSON.stringify(formData),
+      });
     
     console.log("repair info",formData);
     
@@ -56,9 +64,9 @@ export const Inward = () => {
           DeviceSN: '',
           DeviceName: '',
           SiteName: '',
-          receiverName:'',
+          broughtBy:'',
           receiverContact:'',
-          dispatchDate: '',
+          inwardDate: '',
         });
         
       }else{

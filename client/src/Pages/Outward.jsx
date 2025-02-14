@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 import './Repair.css';
 
@@ -29,6 +30,20 @@ export const Outward = () => {
     navigate("/outlist");
   };
 
+  // Function to delete a row
+  const handleDelete = (DeviceSN) => {
+    
+    axios
+      .delete(`http://localhost:5000/api/del/delete/${DeviceSN}`)
+      .then(() => {
+        // Filter out the deleted row from state
+        setUsers(users.filter((user) => user.DeviceSN !== DeviceSN));
+      })
+      .catch((error) => {
+        console.error("Error deleting user:", error);
+      });
+  };
+
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,11 +58,18 @@ export const Outward = () => {
         body:JSON.stringify(formData),
       });
 
+      
+  
+
+
       console.log("repair info",formData);
       
       if(response.ok)
       {
         alert("New installation information submitted!");
+
+        await handleDelete(formData.DeviceSN);
+
    //     alert("Registration successful");
         setFormData({
             DeviceSN: '',

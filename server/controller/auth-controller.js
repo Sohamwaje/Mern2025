@@ -1,4 +1,3 @@
-
 const User = require("../models/user-model");
 const bcrypt = require("bcryptjs");
 
@@ -36,9 +35,15 @@ const register = async (req,res)=>{
             //: hash_password,
         });
 
-            res.status(201).json({msg:"User created successfully",
-                //   token: await userCreated.generateToken(),
-                //   userId: userCreated._id > toString(),
+        if (!userCreated.generateToken) {
+            throw new Error("generateToken method not found on user model");
+        }
+
+
+            res.status(201).json({
+                msg:"Registeration successful",
+                token: await userCreated.generateToken(),
+                userId: userCreated._id.toString(),
                 });
         }
         catch(error)

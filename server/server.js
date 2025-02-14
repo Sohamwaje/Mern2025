@@ -14,6 +14,7 @@ const deleteRoute = require("./router/repair-router");
 const inlistRoute = require("./router/in-router");
 const outListRoute = require("./router/out-router");
 const stockRoute = require("./router/stock-router");
+const stocklistRoute = require("./router/stock-router");
 
 const corsOptions = {
     origin:"http://localhost:3000",
@@ -21,7 +22,7 @@ const corsOptions = {
     credentials:true,
 };
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions)); 
 app.use(express.json());
 app.use("/api/auth",authRoute);
 app.use("/api/form",contactRoute);
@@ -32,6 +33,7 @@ app.use("/api/fet",getRoute);
 app.use("/api/il/",inlistRoute);
 app.use("/api/ol",outListRoute);
 app.use("/api/st",stockRoute);
+app.use("/api/sl",stocklistRoute);
 app.use("/api/del",deleteRoute);
 app.use(errorMiddleware);
 

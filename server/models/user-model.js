@@ -42,26 +42,28 @@ const userSchema = new mongoose.Schema({
 //     next(error);
 // }
 // });
-// //json web token
-// userSchema.methods.generateToken = async function(){
-//     try {
-//     const jwtSecret = SOHAMWAJE || "default_secret";
-//     return jwt.sign(
-//         {
-//         userId:this._id.toString(),
-//         email: this.email,
-//         isAdmin: this.isAdmin,
-//     },
-//     jwtSecret,
-//     {
-//         expiresIn:"30d",
-//     }
 
-// );
-// } catch (error) {
-//     console.error(error);
-// }
-// } ;
+
+// //json web token
+ userSchema.methods.generateToken = async function(){
+     try {
+//     const jwtSecret = SOHAMWAJE || "default_secret";
+     return jwt.sign(
+         {
+         userId:this._id.toString(),
+         email: this.email,
+         isAdmin: this.isAdmin,
+         },
+     process.env.JWT_SECRET_KEY,
+     {
+         expiresIn:"30d",
+     }
+
+ );
+ } catch (error) {
+     console.error(error);
+ }
+ };
 //cmpare password
 // userSchema.methods.comparePassword = async function(password)
 // {
