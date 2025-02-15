@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./RepView.css"; // Import the CSS file
+import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
+import "./RepView.css"; 
 import React from "react";
 
 export const Inlist = () => {
@@ -8,19 +10,33 @@ export const Inlist = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/il/inlist") // Fetch data from backend
+      .get("http://localhost:5000/api/il/inlist") 
       .then((response) => {
-        setUsers(response.data); // Store data in state
+        setUsers(response.data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
 
+  // Function to export data to Excel
+  const exportToExcel = () => {
+    const worksheet = XLSX.utils.json_to_sheet(users);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Inward Devices");
+
+    // Create a blob and trigger download
+    const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+    const data = new Blob([excelBuffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+    saveAs(data, "Inward_Devices.xlsx");
+  };
 
   return (
     <div className="table-container">
       <h1>Inward Device List</h1>
+      <button onClick={exportToExcel} className="export-button">
+        Export to Excel
+      </button>
       <table>
         <thead>
           <tr>
@@ -30,7 +46,6 @@ export const Inlist = () => {
             <th>Receiver Name</th>
             <th>Receiver Contact</th>
             <th>Repair Date</th>
-
           </tr>
         </thead>
         <tbody>
@@ -42,7 +57,6 @@ export const Inlist = () => {
               <td>{user.broughtBy}</td>
               <td>{user.receiverContact}</td>
               <td>{user.inwardDate}</td>
-            
             </tr>
           ))}
         </tbody>
