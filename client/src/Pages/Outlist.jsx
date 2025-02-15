@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./RepView.css"; // Import the CSS file
-import React from "react";
 
 export const Outlist = () => {
   const [users, setUsers] = useState([]);
