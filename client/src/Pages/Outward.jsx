@@ -68,8 +68,7 @@ export const Outward = () => {
       {
         alert("New installation information submitted!");
 
-        await handleDelete(formData.DeviceSN);
-
+        //axios.delete(`http://localhost:5000/api/del/delete/${DeviceSN}`);
    //     alert("Registration successful");
         setFormData({
             DeviceSN: '',
@@ -176,6 +175,8 @@ export const Outward = () => {
 
         <button type="submit">Submit Device Info</button>
       </form>
+      <button onClick={handleDelete} type="submit">View outward list</button>
+
       <button onClick={HandleViewOut} type="submit">View outward list</button>
 
     </div>
