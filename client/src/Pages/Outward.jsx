@@ -33,6 +33,12 @@ export const Outward = () => {
   // Function to delete a row
   const handleDelete = (DeviceSN) => {
     
+    console.log("Attempting to delete DeviceSN:", DeviceSN); // Debug log
+
+    if (!DeviceSN) {
+      alert("DeviceSN is missing!");
+      return;
+    }
     axios
       .delete(`http://localhost:5000/api/del/delete/${DeviceSN}`)
       .then(() => {
