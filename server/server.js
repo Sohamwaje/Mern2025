@@ -15,9 +15,11 @@ const inlistRoute = require("./router/in-router");
 const outListRoute = require("./router/out-router");
 const stockRoute = require("./router/stock-router");
 const stocklistRoute = require("./router/stock-router");
+const stockSchema = require("./models/stock-model");  // Adjust this path based on your file structure
+const supportRoute = require("./controller/support-controller");
 
 const corsOptions = {
-    origin:"http://localhost:3000",
+    origin:"http://localhost:5173",
     methods:"GET,POST,PUT,DELETE,PATCH,HEAD",
     credentials:true,
 };
@@ -34,7 +36,30 @@ app.use("/api/il/",inlistRoute);
 app.use("/api/ol",outListRoute);
 app.use("/api/st",stockRoute);
 app.use("/api/sl",stocklistRoute);
-app.use("/api/del",deleteRoute);
+app.use("/api/sup",supportRoute);
+
+
+//app.use("/api/del",deleteRoute);
+
+// Backend route for deleting a device from stock
+// Example for deleting a device in a MongoDB database
+app.delete('/api/sl/delete/:deviceSN', (req, res) => {
+    const { deviceSN } = req.params;
+  
+    // Try to delete the device from the database
+    stockSchema.findOneAndDelete({ DeviceSN: deviceSN })  // Assuming DeviceSN is the field in your DB
+      .then((result) => {
+        if (!result) {
+          return res.status(404).json({ message: 'Device not found' }); // Device doesn't exist
+        }
+        res.status(200).json({ message: 'Device deleted from stock' });
+      })
+      .catch((error) => {
+        console.error("Error deleting device:", error);
+        res.status(500).json({ message: 'Failed to delete device' }); // Server error
+      });
+  });
+  
 app.use(errorMiddleware);
 
 const PORT = 5000;  

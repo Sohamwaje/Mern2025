@@ -15,6 +15,8 @@ import { Options } from "./Pages/Options";
 import { Inlist } from "./Pages/Inlist";
 import { Outlist } from "./Pages/Outlist";
 import { StockView } from "./Pages/StockView";
+import { Support } from "./Pages/Support";
+import { Supportlist} from "./Pages/Supportlist";
 
 const App = ()=>{
   return (
@@ -36,6 +38,10 @@ const App = ()=>{
   <Route path="/inlist" element = {<Inlist/>}/>
   <Route path="/outlist" element = {<Outlist/>}/>
   <Route path="/stockview" element = {<StockView/>}/>
+  <Route path="/support" element = {<Support/>}/>
+  <Route path="/supportlist" element = {<Supportlist/>}/>
+
+
 
 
 

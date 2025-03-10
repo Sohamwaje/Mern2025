@@ -25,8 +25,9 @@ export const Home = ()=>{
         <button 
         className="hero-btn" 
         onClick={() => handleNavigation("/repair")}>Repair</button>
-        <button 
-        className="hero-btn">Support</button>
+         <button 
+        className="hero-btn" 
+        onClick={() => handleNavigation("/support")}>Support</button>
       </div>
     </div>
     </>

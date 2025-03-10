@@ -21,24 +21,24 @@ router.get("/outlist",async(req ,res)=>{
     }
 });
 
-router.delete("/delete/:DeviceSN", async (req, res) => {
-    try {
-        const id = req.params.DeviceSN;
-    console.log("started");
-        // Delete the repair record with the given machineID
-        const result = await Stock.deleteOne({ DeviceSN: id });
-        console.log("started");
+// router.delete("/delete/:DeviceSN", async (req, res) => {
+//     try {
+//         const deviceSN = req.params;
+//     console.log("started");
+//         // Delete the repair record with the given machineID
+//         const result = await Stock.deleteOne({ deviceSN: id });
+//         console.log("started");
 
     
-        if (result.deletedCount === 0) {
-          return res.status(404).json({ message: "Item not is found" });
-        }
+//         if (result.deletedCount === 0) {
+//           return res.status(404).json({ message: "Item not is found" });
+//         }
     
-        res.json({ message: "Deleted successfully" });
-      } catch (error) {
-        res.status(500).json({ message: "Error deleting item", error: error.message });
-      }
-  });
+//         res.json({ message: "Deleted successfully" });
+//       } catch (error) {
+//         res.status(500).json({ message: "Error deleting item", error: error.message });
+//       }
+//   });
 router.route('/register')
 .post(validate(signupSchema),authcontroller.register);
 router.route('/login')

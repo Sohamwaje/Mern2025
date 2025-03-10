@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import './Repair.css';
 
 const URL = "http://localhost:5000/api/ol/outward";
+const DELETE_URL = "http://localhost:5000/api/sl/delete"; // URL to delete from stock
+
 export const Outward = () => {
   // State to store the form data
   const [formData, setFormData] = useState({
     DeviceSN: '',
     DeviceName: '',
     SiteName: '',
-    broughtBy:'',
-    receiverContact:'',
+    broughtBy: '',
+    receiverContact: '',
     inwardDate: '',
   });
 
@@ -26,28 +28,8 @@ export const Outward = () => {
   };
 
   const navigate = useNavigate();
-  const HandleViewOut = () =>{
+  const HandleViewOut = () => {
     navigate("/outlist");
-  };
-
-  // Function to delete a row
-  const handleDelete = (DeviceSN) => {
-    
-    console.log("Attempting to delete DeviceSN:", DeviceSN); // Debug log
-
-    if (!DeviceSN) {
-      alert("DeviceSN is missing!");
-      return;
-    }
-    axios
-      .delete(`http://localhost:5000/api/del/delete/${DeviceSN}`)
-      .then(() => {
-        // Filter out the deleted row from state
-        setUsers(users.filter((user) => user.DeviceSN !== DeviceSN));
-      })
-      .catch((error) => {
-        console.error("Error deleting user:", error);
-      });
   };
 
   // Handle form submission
@@ -56,52 +38,47 @@ export const Outward = () => {
     console.log('Form data submitted:', formData);
 
     try {
-      const response = await fetch(URL,{
-        method:"POST",
-        headers:{
-          "Content-Type":"application/json",
+      const response = await fetch(URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        body:JSON.stringify(formData),
+        body: JSON.stringify(formData),
       });
 
-      
-  
+      console.log("repair info", formData);
 
-
-      console.log("repair info",formData);
-      
-      if(response.ok)
-      {
+      if (response.ok) {
         alert("New installation information submitted!");
 
-        //axios.delete(`http://localhost:5000/api/del/delete/${DeviceSN}`);
-   //     alert("Registration successful");
+        // After submission, delete the device from the Stock list
+        try {
+          const deleteResponse = await axios.delete(`${DELETE_URL}/${formData.DeviceSN}`);
+          
+          if (deleteResponse.status === 200) {
+            console.log("Device successfully deleted from stock");
+          } else {
+            console.error("Error deleting device from stock");
+          }
+        } catch (deleteError) {
+          console.error("Error deleting device from stock:", deleteError);
+        }
+
         setFormData({
-            DeviceSN: '',
-            DeviceName: '',
-            SiteName: '',
-            broughtBy:'',
-            receiverContact:'',
-            inwardDate: '',
-          });
-        
-      }else{
+          DeviceSN: '',
+          DeviceName: '',
+          SiteName: '',
+          broughtBy: '',
+          receiverContact: '',
+          inwardDate: '',
+        });
+
+      } else {
         alert(`Error: ${response.status}`);
-
-       // alert("wrong details");
       }
-
-      
-
     } catch (error) {
       console.log(error);
-      
     }
-    // Here, you would typically send the data to a backend API
-    // For example: axios.post('/api/repair', formData);
-    // Reset form after submission
-    
-  
   };
 
   return (
@@ -181,10 +158,8 @@ export const Outward = () => {
 
         <button type="submit">Submit Device Info</button>
       </form>
-      <button onClick={handleDelete} type="submit">View outward list</button>
 
       <button onClick={HandleViewOut} type="submit">View outward list</button>
-
     </div>
   );
 };
