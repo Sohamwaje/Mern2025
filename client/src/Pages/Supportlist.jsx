@@ -6,21 +6,25 @@ import "./RepView.css";
 
 export const Supportlist = () => {
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/sup/supportlist")
       .then((response) => {
         setUsers(response.data);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
+        setError("Failed to load support list.");
+        setLoading(false);
       });
   }, []);
 
-  // Function to export data to Excel
   const exportToExcel = () => {
-    const formattedData = users.map((user, index) => ({
+    const formattedData = users.map((user) => ({
       "Name": user.Name,
       "Contact": user.Contact,
       "Issue": user.Issue,
@@ -34,11 +38,13 @@ export const Supportlist = () => {
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Support List");
 
-    // Create a blob and trigger download
     const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
     const data = new Blob([excelBuffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
     saveAs(data, "Support_List.xlsx");
   };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <div className="table-container">
@@ -59,9 +65,8 @@ export const Supportlist = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user, index) => (
-            <tr key={Name}>
-
+          {users.map((user) => (
+            <tr key={user.Contact}>
               <td>{user.Name}</td>
               <td>{user.Contact}</td>
               <td>{user.Issue}</td>

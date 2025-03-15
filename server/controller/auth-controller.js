@@ -73,6 +73,7 @@ const register = async (req,res)=>{
             if (userExist.password === password) {
                 res.status(200).json({
                     msg: "Login Successful",
+                    token: await userExist.generateToken(),
                     userId: userExist._id.toString(),
                 });                
                 }else{
